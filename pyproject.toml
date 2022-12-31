@@ -9,6 +9,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7" # minimum version.
+sqlglot = "^10.3.2"
 
 
 [tool.poetry.dev-dependencies]

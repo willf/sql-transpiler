@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+
+import sys
+
+import sqlglot
+
+# read the SQL query from stdin
+# and convert it to the target dialect
+
+# does the string start with a lowercase letter?
+def is_lower(s):
+    return s and s[0].islower()
+
+dialects = [x for x in dir(sqlglot.dialects) if is_lower(x) and x != "dialect"]
+
+dialects.sort()
+
+def transpile(sql, from_dialect, to_dialect, pretty=True):
+    return sqlglot.transpile(sql, read=from_dialect, write=to_dialect, pretty=pretty)
+
+def transpile_guess(sql, to_dialect, pretty=True):
+    return sqlglot.transpile(sql, identify=True, write=to_dialect, pretty=pretty)
+
+# set up the command line arguments
+# for the transpiler
+
+import argparse
+
+args = argparse.ArgumentParser()
+args.add_argument("-f", "--from_dialect", help="target dialect. Defaults to 'guess'")
+args.add_argument("to_dialect", help="target dialect. Must be one of: " + ', '.join(dialects))
+args.add_argument("--pretty", help="pretty print", action="store_true", default=True)
+
+if __name__ == "__main__":
+    # parse the command line arguments
+    args = args.parse_args()
+    # read the SQL query from stdin
+    sql = sys.stdin.read()
+    # transpile the SQL query
+    result = None
+    if args.from_dialect == "guess":
+        result = transpile_guess(sql, args.to_dialect, args.pretty)
+    else:
+      result = transpile(sql, args.from_dialect, args.to_dialect, args.pretty)
+        # print the result
+    print(result[0])
+    # exit with success
+    sys.exit(0)
