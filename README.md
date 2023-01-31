@@ -1,33 +1,40 @@
-# Joyfully
+# SQL Transpiler
 
-[![Python package](https://github.com/willf/joyfully/actions/workflows/test.yml/badge.svg)](https://github.com/willf/joyfully/actions/workflows/test.yml)
+Convert from one SQL dialect to another, using the sqlglot library.
 
-Write more joyful code.
+```bash
+❯ script/transpile --help
+usage: transpile [-h] [-f FROM_DIALECT] [--pretty] to_dialect
 
-This is not a _real_ project, but a project template that could be used to create new [Poetry](https://python-poetry.org/) projects with automated testing and linting, issues, pull requests, how to contribute, and a code of conduct.
+positional arguments:
+  to_dialect            target dialect. Must be one of: bigquery, clickhouse, databricks, drill, duckdb, hive,
+                        mysql, oracle, postgres, presto, redshift, snowflake, spark, sqlite, starrocks,
+                        tableau, trino, tsql
 
-Free free to use it for your own projects, or to fork it and make your own template.
+options:
+  -h, --help            show this help message and exit
+  -f FROM_DIALECT, --from_dialect FROM_DIALECT
+                        target dialect. Defaults to 'guess'
+  --pretty              pretty print
+```
 
 ---
 
 ## Installation
 
-```shell
-pip install joyfully
-```
+1. You must have Poetry installed, and a version of Python 3.6 or higher.
+2. You should clone this repository.
+3. Run `poetry install` to install the dependencies.
 
 ## Usage
 
-```python
-from joyfully import joyfully
+1. Run `poetry shell` to enter the virtual environment.
+2. Run `script/transpile` to see the usage information.
 
-
-print(joyfully.hello_world())
-```
 
 ## Contributing
 
-We welcome contributions to Joyfully. Please see our [contributing guidelines](contributing.md) for more information.
+We welcome contributions. Please see our [contributing guidelines](contributing.md) for more information.
 
 ## Code of Conduct
 
