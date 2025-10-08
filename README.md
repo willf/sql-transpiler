@@ -22,15 +22,14 @@ options:
 
 ## Installation
 
-1. You must have Poetry installed, and a version of Python 3.6 or higher.
+1. You must have [uv](https://docs.astral.sh/uv/) installed, and a version of Python 3.9 or higher.
 2. You should clone this repository.
-3. Run `poetry install` to install the dependencies.
+3. Run `uv sync` to install the dependencies.
 
 ## Usage
 
-1. Run `poetry shell` to enter the virtual environment.
-2. Run `script/transpile` to see the usage information.
-
+1. Run `uv run script/transpile` to see the usage information, or
+2. Run `uv shell` to enter the virtual environment and then run `script/transpile`.
 
 ## Contributing
 

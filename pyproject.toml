@@ -1,26 +1,23 @@
-[tool.poetry]
+[project]
 name = "sql-transpiler"
 version = "0.1.0"
 description = "Transpile SQL"
-authors = ["Will Fitzgerald <37049+willf@users.noreply.github.com>"]
+authors = [
+  { name = "Will Fitzgerald", email = "37049+willf@users.noreply.github.com" },
+]
 readme = "README.md"
-license = "MIT"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = ["sqlglot>=10.3.2"]
 
-[tool.poetry.dependencies]
-python = "^3.9"     # minimum version.
-sqlglot = "^10.3.2"
-
-
-[tool.poetry.group.dev.dependencies]
-black = "^24.3.0"
-flake8 = "^5.0.4"
-pytest = "^7.2.1"
-isort = "^5.10.1"
-coverage = "^6.5.0"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+  "black>=24.3.0",
+  "flake8>=5.0.4",
+  "pytest>=7.2.1",
+  "isort>=5.10.1",
+  "coverage>=6.5.0",
+]
 
 [tool.black]
 exclude = '''
