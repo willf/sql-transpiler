@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Transpile SQL"
 authors = ["Will Fitzgerald <37049+willf@users.noreply.github.com>"]
 readme = "README.md"
-packages = [{ include = "joyfully", from = "src" }]
+packages = [{ include = "sql-transpiler", from = "src" }]
 license = "MIT"
 
 [tool.poetry.dependencies]
